@@ -1,4 +1,5 @@
 import itertools
+import math
 
 def get_factors(n):
     """ Returns a set of unique factors of the number n. """
@@ -44,3 +45,20 @@ def get_permutations(n):
         l = ''.join([str(x) for x in list(perm)])
         res.append(l)
     return res
+
+
+def redux(row_1, row_2):
+    # eg row_1 = [63 66 04 68 89 53 67 30 73 16 69 87 40 31]
+    # eg row_2 = [04 62 98 27 23 09 70 98 73 93 38 53 60 04 23]
+    # for each i in row_1, choose the larger between row_2[i] and row_2[i+1]
+    # take row_1[i] and the larger and set as r[i]
+    r = []
+    for i in range(0, len(row_1)):
+        v = row_1[i]
+        a = row_2[i]
+        b = row_2[i+1]
+        if a >= b:
+            r.append(v + a)
+        else:
+            r.append(v+b)
+    return r
