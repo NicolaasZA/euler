@@ -1,34 +1,47 @@
-# not yet solved
 
-from decimal import *
-testLen = 4
-def rep_count(s):
-    piece = s[0:testLen]
-    l = 1
-    for idx in range(1, len(s) - (testLen + 1)):
-        if piece == s[idx:idx+testLen]:
-            return l
-        else:
-            l += 1
+def get_range(d):
+    if d % 7 == 0:
+        return 7
 
-longest = 1
-longestVal = 1
-for val in range(2, 1000):
-    # if val % 3 == 0 or val % 7 == 0:
-    #     pass
-    # else:
-    x = Decimal(1) / Decimal(val)
-    stripped = str(x).split('.')[1]
-    # if stripped.count('.') > 0:
-    #     stripped = stripped.split('.')[1]
-    
-    # if len(stripped) >= 11:
-    count = rep_count(stripped)
-    if count is not None and count > 1:
-        if count >= longest:
-            print(val, count, stripped)
-            longest = count
-            longestVal = val
 
-print(longest)
-print(longestVal)
+    items = []
+    frac = 1
+    start = int(frac/d)
+    # Move until
+    while start == 0:
+        frac *= 10
+        start = int(frac/d)
+
+    items.append(frac)
+
+    move = (frac % d) * 10
+    rep = move
+    repCount = 0
+    items.append(move)
+
+    while move != frac:
+        move = (move % d) * 10
+        items.append(move)
+
+        if move == 0:
+            break
+        if move == rep:
+            repCount += 1
+        if repCount > 3:
+            break
+
+    if items[0] == items[len(items)-1]:
+        items.pop()
+
+    # look for a repeating value at the end and trim off
+    for x in reversed(range(0, len(items) - 1)):
+        if items[x] == items[x+1]:
+            items.pop()
+            x -= 1
+
+    # print(items)
+    return len(items)
+
+
+for a in range(2, 10):
+    print(a, '=', get_range(a))
