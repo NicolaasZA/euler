@@ -1,4 +1,4 @@
-from math import floor
+from math import floor, sqrt
 
 
 def triangle(n):
@@ -26,3 +26,21 @@ def hexagonal(n):
     Eg. 1, 6, 15, 28, 45, ...
     """
     return floor(n * (2*n - 1))
+
+
+def is_trangle(p: int):
+    """Returns true if p is a triangle number."""
+    n = sqrt(1 + 8 * p) - 1
+    return n % 2 == 0
+
+
+def is_pentagonal(p: int):
+    """Returns true if p is a pentagonal number."""
+    r = sqrt(1 + 24 * p)
+    return r % 6 == 5
+
+
+def is_hexagonal(p: int):
+    """Returns true if p is a hexagonal number."""
+    n = sqrt(1 + 8 * p) + 1
+    return n % 4 == 0
