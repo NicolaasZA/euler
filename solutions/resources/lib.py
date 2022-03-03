@@ -2,7 +2,7 @@ import itertools
 import math
 
 
-def get_factors(n):
+def get_factors(n: int):
     """ Returns a set of unique factors of the number n. """
     return set(
         factor for i in range(1, int(n**0.5) + 1) if n % i == 0
@@ -85,16 +85,8 @@ ten_range = range(0, 10)
 
 
 def is_pandigital(num, rng=ten_range):
-    # if len(str(num)) > 10:
-    #     raise ValueError('Only values with length <= 10 allowed.')
-    # if num == 1:
-    #     return True
-
     s = str(num)
     for i in rng:
         if s.count(str(i)) != 1:
             return False
-        # sols[i] = s.count(str(i))
-        # if s.count(str(i)) != 1:
-        #     return False
     return True
