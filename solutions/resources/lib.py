@@ -26,6 +26,16 @@ def is_prime(n):
     return True
 
 
+def get_digit_counts(val: int):
+    counts = [0] * 10
+
+    str_val = str(val)
+    for char in str_val:
+        counts[int(char)] += 1
+
+    return counts
+
+
 def get_permutations(n):
     """ Returns a set of all unique permutations of the number n. """
     if n is None or n <= 0:
@@ -48,6 +58,12 @@ def get_permutations(n):
     return res
 
 
+def is_permutation(seed: int, val: int):
+    a = get_digit_counts(seed)
+    b = get_digit_counts(val)
+    return a == b
+
+
 def redux(row_1, row_2):
     # eg row_1 = [63 66 04 68 89 53 67 30 73 16 69 87 40 31]
     # eg row_2 = [04 62 98 27 23 09 70 98 73 93 38 53 60 04 23]
@@ -64,7 +80,9 @@ def redux(row_1, row_2):
             r.append(v+b)
     return r
 
+
 ten_range = range(0, 10)
+
 
 def is_pandigital(num, rng=ten_range):
     # if len(str(num)) > 10:
