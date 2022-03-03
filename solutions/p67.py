@@ -2,7 +2,7 @@ from resources.lib import redux
 
 def read_rows():
     rowsText = []
-    with open('solutions/resources/p067_triangle.txt', 'r') as file:
+    with open('solutions/files/p067_triangle.txt', 'r') as file:
         rowsText = file.readlines()
     rows = []
     for row in rowsText:

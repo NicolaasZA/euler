@@ -4,7 +4,7 @@ def score(name, idx):
 print(score('COLIN', 938))
 
 namesList = ''
-with open('solutions/resources/p022_names.txt', 'r') as file:
+with open('solutions/files/p022_names.txt', 'r') as file:
     namesList = file.readline()
 
 names = namesList.replace("\"", "").split(',')

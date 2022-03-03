@@ -28,7 +28,7 @@ def hexagonal(n):
     return floor(n * (2*n - 1))
 
 
-def is_trangle(p: int):
+def is_triangle(p: int):
     """Returns true if p is a triangle number."""
     n = sqrt(1 + 8 * p) - 1
     return n % 2 == 0

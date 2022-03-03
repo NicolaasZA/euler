@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import math
-from resources.generators import pentagonal
+from resources.numbers import pentagonal
 
 depth = 5000 # should be enough to get the answer
 

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import resources.generators as gen
+import resources.numbers as gen
 
 max_n = 5000**2
 

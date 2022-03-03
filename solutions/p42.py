@@ -9,12 +9,12 @@ By converting each letter in a word to a number corresponding to its alphabetica
 we form a word value. For example, the word value for SKY is 19 + 11 + 25 = 55 = t10. If the word value is a triangle 
 number then we shall call the word a triangle word.
 
-Using words.txt (mapped to resources/p042_words.txt) (right click and 'Save Link/Target As...'), a 16K text file containing nearly two-thousand common 
+Using words.txt (mapped to files/p042_words.txt) (right click and 'Save Link/Target As...'), a 16K text file containing nearly two-thousand common 
 English words, how many are triangle words?
 
 from https://projecteuler.net/problem=42
 """
-from resources.generators import is_trangle
+from resources.numbers import is_triangle
 
 
 def word_to_total(word: str) -> int:
@@ -26,7 +26,7 @@ def word_to_total(word: str) -> int:
 
 # Read words from file
 words = []
-with open('solutions/resources/p042_words.txt', 'r') as file:
+with open('solutions/files/p042_words.txt', 'r') as file:
     content = file.readline()
     words = content.replace("\"", "").split(',')
     words.sort()
@@ -34,7 +34,7 @@ with open('solutions/resources/p042_words.txt', 'r') as file:
 # Count triangle words
 count = 0
 for word in words:
-    if is_trangle(word_to_total(word)):
+    if is_triangle(word_to_total(word)):
         count += 1
 
 print('{} of {} words are triangle words'.format(count, len(words)))
