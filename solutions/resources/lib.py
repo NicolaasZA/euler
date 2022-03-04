@@ -1,13 +1,27 @@
 import itertools
-import math
 
 
-def get_factors(n: int):
-    """ Returns a set of unique factors of the number n. """
-    return set(
+def get_factors(n: int, exludeN=False):
+    s = set(
         factor for i in range(1, int(n**0.5) + 1) if n % i == 0
         for factor in (i, n//i)
     )
+    try:
+        if exludeN:
+            s.remove(n)
+            s.remove(1)
+    except:
+        pass
+    return s
+
+
+def get_prime_factors(n):
+    fs = get_factors(n)
+    primes = set([])
+    for factor in fs:
+        if is_prime(factor):
+            primes.add(factor)
+    return list(primes)
 
 
 def is_prime(n):
@@ -91,3 +105,62 @@ def is_pandigital(num, rng=ten_range):
         if s.count(str(i)) != 1:
             return False
     return True
+
+
+def get_prime_factorisation(val: int):
+    primes_in_range = []
+    for n in range(2, val):
+        if is_prime(n):
+            primes_in_range.append(n)
+
+    i = 0
+    rem = val
+    components = []
+    while rem > 0 and i < len(primes_in_range):
+        if rem % primes_in_range[i] == 0:
+            components.append(primes_in_range[i])
+            rem /= primes_in_range[i]
+            i = 0
+        else:
+            i += 1
+    return components
+
+
+def to_dict(vals: list):
+    res = {}
+    for v in vals:
+        res[v] = res[v] + 1 if v in res else 1
+    return res
+
+
+def get_lowest_common_multiple(values: list):
+    combined = {}
+    for val in values:
+        pf = get_prime_factorisation(val)
+        df = to_dict(pf)
+        for key in df:
+            if key in combined:
+                if df[key] > combined[key]:
+                    combined[key] = df[key]
+            else:
+                combined[key] = df[key]
+    multiple = 1
+    for key in combined:
+        multiple *= (key**combined[key])
+    return multiple
+
+
+def get_fraction_lower(top: int, bot: int):
+    """Reduce a fraction to its lowest form. eg. 5/10 becomes 1/2"""
+    maks = min(top, bot)
+    i = maks
+
+    while i > 2:
+        if (top / i) % 1 == 0 and (bot / i) % 1 == 0:
+            top = int(top/i)
+            bot = int(bot/i)
+            maks = min(top, bot)
+            i = maks
+        else:
+            i -= 1
+    return top, bot
