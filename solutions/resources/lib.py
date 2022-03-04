@@ -99,6 +99,23 @@ def redux(row_1, row_2):
 ten_range = range(0, 10)
 
 
+def is_palindrome(text: str):
+    if len(text) == 0:
+        return False
+    elif len(text) == 1:
+        return True
+    elif len(text) == 2:
+        return text[0] == text[1]
+    elif len(text) == 3:
+        return text[0] == text[2]
+
+    for i in range(0, int(len(text) / 2)):
+        if text[i] != text[len(text)- 1 - i]:
+            return False
+
+    return True
+
+
 def is_pandigital(num, rng=ten_range):
     s = str(num)
     for i in rng:
