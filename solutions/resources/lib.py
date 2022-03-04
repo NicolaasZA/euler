@@ -26,13 +26,14 @@ def is_prime(n):
     return True
 
 
-def get_digit_counts(val: int, max_len = 9):
-    counts = [0] * max_len
+def get_digit_counts(val: int):
+    """Get a count of all digits in the number _val_ from 0 to 9"""
+    counts = [0] * 10
 
     str_val = str(val)
     for char in str_val:
-        if (int(char)-1) < len(counts):
-            counts[int(char)-1] += 1
+        if (int(char)) < len(counts):
+            counts[int(char)] += 1
     return counts
 
 
