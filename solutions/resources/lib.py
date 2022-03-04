@@ -24,7 +24,7 @@ def get_prime_factors(n):
     return list(primes)
 
 
-def is_prime(n):
+def is_prime(n: int):
     """ Returns True if the number n is a prime. """
     if (n <= 1):
         return False
@@ -51,7 +51,7 @@ def get_digit_counts(val: int):
     return counts
 
 
-def get_permutations(n):
+def get_permutations(n: int):
     """ Returns a set of all unique permutations of the number n. """
     if n is None or n <= 0:
         return []
