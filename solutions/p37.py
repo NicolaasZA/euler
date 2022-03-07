@@ -8,7 +8,6 @@ Note: 2, 3, 5, and 7 are not considered to be truncatable primes.
 
 from https://projecteuler.net/problem=37
 """
-import timeit
 from resources.lib import is_prime
 
 
