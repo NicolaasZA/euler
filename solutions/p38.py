@@ -27,13 +27,15 @@ largest = [0, 0, 0]
 for x in range(start_x, max_x):
     pieces = []
     n = 1
+    # Keep incrementing n until we pass the target length of 9
     while len(cat(pieces)) < 9:
         pieces.append(x*n)
         n += 1
+
     if len(cat(pieces)) == 9:
         value = int(cat(pieces))
         if is_pandigital(value, test_range):
             if value > largest[2]:
                 largest = [x, n, value]
 
-print(largest)
+print(f'answer is {largest[2]} produced from x={largest[0]} and n=[1...{largest[1]}]')
