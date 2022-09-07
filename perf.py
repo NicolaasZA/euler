@@ -10,8 +10,6 @@ def get_offending_index(val: int):
                 return b
     return 0
 
-    # test commit content
-
 
 def get_next(val: int):
     # if str(val).endswith('999'):
