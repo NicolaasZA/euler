@@ -19,4 +19,4 @@ while len(rows) > 1:
     rows[second_last] = redux(rows[second_last], rows[last])
     rows.pop()
 
-print(rows[0])
+print(rows[0]) # 7273

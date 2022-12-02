@@ -1,8 +1,5 @@
 from resources.lib import redux
 
-# test
-# test again
-
 rows = [
     [75],
     [95, 64],
@@ -27,4 +24,5 @@ while len(rows) > 1:
 
     rows[second_last] = redux(rows[second_last], rows[last])
     rows.pop()
-    print(rows)
+
+print(rows)  # 1074
