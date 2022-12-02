@@ -2,7 +2,7 @@
 
 My solutions for https://projecteuler.net/
 
-Problems in blue have solution files.
+Problems in blue (ie with link) have solution files.
 
 | O                      | N                      | E                      | H                      | U                      | N                      | D                      | R                      | E                      | D                      |
 | ---------------------- | ---------------------- | ---------------------- | ---------------------- | ---------------------- | ---------------------- | ---------------------- | ---------------------- | ---------------------- | ---------------------- |
